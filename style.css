@@ -1,0 +1,676 @@
+:root {
+    --primary: #1a4d2e;
+    --secondary: #d4a373;
+    --accent: #8b5a3c;
+    --light: #f8f5f0;
+    --warm: #fef9f3;
+    --text: #2c3e3e;
+    --gold: #c9a961;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(135deg, var(--warm) 0%, #fef6ed 100%);
+    color: var(--text);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* Decorative Background Elements */
+.bg-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.03;
+    background-image: 
+        radial-gradient(circle at 20% 30%, var(--primary) 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, var(--secondary) 1px, transparent 1px);
+    background-size: 50px 50px, 70px 70px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 80px 0 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.church-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInDown 1s ease-out;
+}
+
+.church-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: invert(1) drop-shadow(0 10px 40px rgba(26, 77, 46, 0.2));
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.verse {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 20px auto 0;
+    padding: 20px;
+    border-left: 3px solid var(--gold);
+    background: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+/* Main Card */
+.main-card {
+    background: white;
+    border-radius: 30px;
+    padding: 60px;
+    margin: 40px 0;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(26, 77, 46, 0.05);
+    animation: fadeInUp 1s ease-out 0.3s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--gold), var(--secondary));
+}
+
+/* Campaign Info */
+.campaign-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.campaign-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.campaign-description {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Progress Section */
+.progress-section {
+    margin: 50px 0;
+}
+
+.amount-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.amount-box {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--warm), white);
+    border-radius: 20px;
+    border: 2px solid rgba(26, 77, 46, 0.1);
+    transition: all 0.4s ease;
+    animation: fadeInUp 1s ease-out calc(0.5s + var(--delay)) both;
+}
+
+.amount-box:nth-child(1) { --delay: 0s; }
+.amount-box:nth-child(2) { --delay: 0.1s; }
+.amount-box:nth-child(3) { --delay: 0.2s; }
+
+.amount-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.amount-label {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.amount-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.currency {
+    font-size: 1.8rem;
+    opacity: 0.7;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    margin: 40px 0;
+}
+
+.progress-bar-wrapper {
+    position: relative;
+    height: 35px;
+    background: rgba(26, 77, 46, 0.08);
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--gold));
+    border-radius: 50px;
+    width: 0;
+    animation: fillProgress 2s ease-out 1s forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.progress-percentage {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* Donation Methods */
+.donation-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 60px 0;
+}
+
+.donation-card {
+    background: linear-gradient(135deg, var(--light), white);
+    padding: 40px;
+    border-radius: 25px;
+    border: 2px solid rgba(26, 77, 46, 0.1);
+    animation: fadeInUp 1s ease-out calc(0.8s + var(--delay)) both;
+}
+
+.donation-card:nth-child(1) { --delay: 0s; }
+.donation-card:nth-child(2) { --delay: 0.15s; }
+
+.donation-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+.bank-details {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid var(--gold);
+    margin-bottom: 20px;
+}
+
+.bank-detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.bank-detail-row:last-child {
+    border-bottom: none;
+}
+
+.bank-label {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 0.95rem;
+}
+
+.bank-value {
+    font-family: 'Lora', serif;
+    color: var(--text);
+    font-weight: 500;
+    text-align: right;
+}
+
+/* QR Code */
+.qr-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.qr-code {
+    width: 220px;
+    height: 220px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.qr-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.qr-instruction {
+    font-size: 1.05rem;
+    color: #666;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* Impact Message */
+.impact-message {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out 1.2s both;
+}
+
+.impact-message::before {
+    content: '✝';
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    font-size: 200px;
+    opacity: 0.05;
+}
+
+.impact-message h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.impact-message p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    color: #666;
+    animation: fadeIn 1s ease-out 1.5s both;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    font-size: 1.05rem;
+}
+
+.contact-info a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--gold);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes fillProgress {
+    from { width: 0; }
+    to { width: var(--progress-width); }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* Copy Button */
+.copy-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Crimson Text', serif;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    margin-top: 15px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.copy-btn:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .copy-btn:hover {
+        transform: none;
+    }
+    
+    .copy-btn:active {
+        background: var(--accent);
+        transform: scale(0.98);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    header {
+        padding: 50px 0 30px;
+    }
+
+    .church-logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    h1 { 
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .verse {
+        font-size: 1rem;
+        padding: 15px;
+        margin: 15px 0 0;
+    }
+
+    .main-card { 
+        padding: 30px 20px;
+        border-radius: 20px;
+        margin: 30px 0;
+    }
+
+    .campaign-header {
+        margin-bottom: 35px;
+    }
+
+    .campaign-title { 
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+
+    .campaign-description {
+        font-size: 1.05rem;
+    }
+
+    .amount-display { 
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .amount-box {
+        padding: 20px;
+    }
+
+    .amount-label {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .amount-value { 
+        font-size: 2rem;
+    }
+
+    .currency {
+        font-size: 1.4rem;
+    }
+
+    .progress-bar-wrapper {
+        height: 28px;
+    }
+
+    .progress-percentage {
+        font-size: 1.1rem;
+        margin-top: 12px;
+    }
+
+    .donation-methods { 
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin: 40px 0;
+    }
+
+    .donation-card {
+        padding: 30px 20px;
+    }
+
+    .donation-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .bank-details {
+        padding: 20px 15px;
+    }
+
+    .bank-detail-row {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 0;
+    }
+
+    .bank-value {
+        text-align: left;
+        font-size: 0.95rem;
+    }
+
+    .qr-code {
+        width: 180px;
+        height: 180px;
+        padding: 15px;
+    }
+
+    .qr-instruction {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+
+    .copy-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .impact-message { 
+        padding: 30px 20px;
+        margin: 40px 0;
+    }
+
+    .impact-message::before {
+        font-size: 120px;
+        top: -20px;
+        right: -10px;
+    }
+
+    .impact-message h3 { 
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .impact-message p {
+        font-size: 1.05rem;
+    }
+
+    footer {
+        padding: 40px 0 30px;
+    }
+
+    .contact-info p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .church-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .campaign-title {
+        font-size: 1.5rem;
+    }
+
+    .amount-value {
+        font-size: 1.8rem;
+    }
+
+    .main-card {
+        padding: 25px 15px;
+    }
+
+    .donation-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .impact-message h3 {
+        font-size: 1.4rem;
+    }
+}
